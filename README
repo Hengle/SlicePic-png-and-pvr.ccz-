@@ -1,0 +1,26 @@
+# 切图脚本
+这个脚本是我fork别人的，然后修改的
+
+
+我这里的例子是扒的三国之刃的，它的plist文件是二进制的，我这里引入了biplist去解析
+假如你的plist文件是明文的，请如下修改：
+	 row 36 ： 	plist_dict = readPlist(plist_filename)
+	 改为： 		plist_dict = tree_to_dict(open(plist_filename,"r").read())
+
+功能：
+	（1）png大图切碎图
+	（2）pvr.ccz切碎图
+
+使用：
+	新建一个文件夹 xxx，把ConvertTools.py放在根目录下
+	在 xxx 目录下新建一个res文件夹，放置需要转换的资源
+	转换完的会输出到 xxx/output
+
+
+需要的module：
+	jpeg-7
+	zlib-1.2.8
+	Imaging-1.1.7（mac下编译如果出现#include<x11/*>的错误可以gg一下）
+	biplist
+	git地址: https://github.com/wooster/biplist.git
+	包下有详细的例子以及安装方式
